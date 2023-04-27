@@ -1,0 +1,104 @@
+<div class=" ms-1 p-2 " style="width: 600px">
+  <div class="mb-5">
+    <h2>Cadastrar Cliente</h2>
+  </div>
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item active " role="presentation">
+      <button class="nav-link active " id="first-tab" data-bs-toggle="tab" data-bs-target="#first" type="button"
+              role="tab" aria-controls="first" aria-selected="true">Dados Pessoais
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" id="second-tab" data-bs-toggle="tab" data-bs-target="#second" type="button" role="tab"
+              aria-controls="second" aria-selected="false">Endereço
+      </button>
+    </li>
+  </ul>
+  <form [formGroup]="customerForm" class="needs-validation ">
+    <div class="tab-content mt-4" id="myTabContent">
+      <div id="first" class="tab-pane fade show active" role="tabpanel" aria-labelledby="first-tab">
+        <div class="row g-3">
+          <div class="mb-3 col-md-4">
+            <label for="type" class="form-label">Selecione</label>
+            <select class="form-select" id="type" formControlName="type">
+              <option value=""></option>
+              <option value="cpf">CPF</option>
+              <option value="cnpj">CNPJ</option>
+            </select>
+          </div>
+          <div formGroupName="personalData" class="mb-3 col-md-4" *ngIf="customerForm.get('type')?.value === 'cpf'">
+            <label for="cpf" class="form-label">Digite o CPF</label>
+            <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="000.000.000-00">
+          </div>
+          <div formGroupName="personalData" class="mb-3 col-md-4" *ngIf="customerForm.get('type')?.value === 'cnpj'">
+            <label for="cnpj" class="form-label">Digite o CNPJ</label>
+            <input type="text" class="form-control" id="cnpj" formControlName="cnpj" placeholder="00.000.000/0000-00">
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="mb-3 col-md-8">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+          </div>
+          <div class="mb-3 col-md-4">
+            <label for="birthdate" class="form-label">Data de nascimento</label>
+            <input type="date" class="form-control" id="birthdate" formControlName="birthdate" placeholder="dd/mm/yyyy">
+          </div>
+        </div>
+        <div class="row g-3">
+          <div formGroupName="personalData" class="mb-3 col-md-8">
+            <label for="email" class="form-label">email</label>
+            <input type="email" class="form-control" id="email" formControlName="email"
+                   placeholder="name@example.com">
+          </div>
+          <div formGroupName="personalData" class="mb-3 col-md-4">
+            <label for="phone" class="form-label">celular</label>
+            <input type="text" class="form-control" id="phone" formControlName="phone">
+          </div>
+        </div>
+      </div>
+      <div id="second" class="tab-pane fade" role="tabpanel" aria-labelledby="second-tab">
+        <div class="row g-3">
+          <div formGroupName="address" class="col-md-3">
+            <label for="zipCode" class="form-label">CEP</label>
+            <input type="text" class="form-control" id="zipCode" formControlName="zipCode">
+          </div>
+          <div formGroupName="address" class="col-md-9">
+            <label for="street" class="form-label">Rua</label>
+            <input type="text" class="form-control" id="street" formControlName="street">
+          </div>
+        </div>
+        <div class="row g-3">
+          <div formGroupName="address" class="col-3">
+            <label for="number" class="form-label">N°</label>
+            <input type="text" class="form-control" id="number" formControlName="number">
+          </div>
+          <div formGroupName="address" class="col-3">
+            <label for="supplemental" class="form-label">Complemento</label>
+            <input type="text" class="form-control" id="supplemental" formControlName="supplemental"
+                   placeholder="Ex: Apto, bloco, casa...">
+          </div>
+          <div formGroupName="address" class="col-md-6">
+            <label for="district" class="form-label">Bairro</label>
+            <input type="text" class="form-control" id="district" formControlName="district">
+          </div>
+        </div>
+        <div class="row g-3">
+          <div formGroupName="address" class="col-md-6">
+            <label for="city" class="form-label">Cidade</label>
+            <input type="text" class="form-control" id="city" formControlName="city">
+          </div>
+          <div formGroupName="address" class="col-md-6">
+            <label for="state" class="form-label">Estado</label>
+            <input type="text" class="form-control" id="state" formControlName="state">
+          </div>
+        </div>
+        <div class="mt-4">
+          <button type="button" class="btn btn-primary" (click)="onSubmit(customerForm)">Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+

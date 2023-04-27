@@ -1,0 +1,41 @@
+<div class="mb-3">
+  <h2>Lista de Clientes</h2>
+</div>
+<table class="table table-responsive">
+  <thead>
+  <tr>
+    <th scope="col">#id</th>
+    <th scope="col">Nome</th>
+    <th scope="col">CPF/CNPJ</th>
+    <th scope="col">Data Nasc.</th>
+    <th scope="col">Email</th>
+    <th scope="col">Cel.</th>
+    <th scope="col">
+      <button type="button" class="btn pb-0" [routerLink]="['../customer-form']">
+        <i class="fa-solid fa-user-plus link-primary"></i>
+      </button>
+
+      <!-- TODO implementar botão para pesquisar customer por id mais para frente...  -->
+
+    </th>
+  </tr>
+  </thead>
+  <tbody class="table-group-divider">
+  <tr *ngFor="let customer of customers">
+    <th scope="row">{{ customer.id }}</th>
+    <td>{{ customer.name }}</td>
+    <td>{{ customer.personalData.cpf ? customer.personalData.cpf : customer.personalData.cnpj }}</td>
+    <td>{{ customer.birthdate | date:'dd/mm/yyyy' }}</td>
+    <td>{{ customer.personalData.email }}</td>
+    <td>{{ customer.personalData.phone }}</td>
+    <td>
+      <button type="button" class="btn pb-0" [routerLink]="['../customer-edit']" (click)="editCustomer(customer)">
+        <i class="fa-solid fa-user-pen link-warning"></i>
+      </button>
+      <button type="button" class="btn pb-0">
+        <i class="fa-solid fa-trash link-danger"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

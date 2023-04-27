@@ -24,17 +24,4 @@ export class LoginService {
       user ? this.router.navigate(['user']) : alert('User não existe!')
     });
   }
-
-  private onSuccess() {
-    console.log('Cliente salvo com sucesso!');
-    // this.onCancel();
-  }
-
-  private onError() {
-    console.log('Erro ao salvar cliente.');
-  }
-
-  // onCancel(){
-  //   this.location.back();
-  // }
 }

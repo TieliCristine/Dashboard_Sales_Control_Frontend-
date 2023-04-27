@@ -1,4 +1,4 @@
-import {AccessLvl} from "./AccessLvl";
+import { AccessLvl } from "./AccessLvl";
 
 export interface User{
   id: number;

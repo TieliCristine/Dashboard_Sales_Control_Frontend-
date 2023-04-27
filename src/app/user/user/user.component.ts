@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {User} from "../../shared/model/User";
 
 @Component({
   selector: 'app-user',
@@ -7,9 +8,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  ngOnInit(): void {
+  constructor() {
   }
 
-  
-
+  ngOnInit(): void {
+  }
 }
