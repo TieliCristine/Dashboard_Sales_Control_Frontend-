@@ -1,0 +1,39 @@
+<div class="card-header m-3">
+  <h2>Lista de Produtos</h2>
+</div>
+<div class="card-body p-3">
+  <table class="table table-responsive">
+    <thead>
+    <tr>
+      <th scope="col">#id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Preço</th>
+      <th scope="col">
+        <button type="button" class="btn pb-0" [routerLink]="['../product-form']">
+          <img src="assets/user-add.png">
+        </button>
+
+        <!-- TODO implementar botão para pesquisar customer por id mais para frente...  -->
+
+      </th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    <tr *ngFor="let product of products">
+      <th scope="row">{{ product.id }}</th>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.price }}</td>
+      <td>
+        <button type="button" class="btn pb-0" [routerLink]="['../product-edit']" (click)="editProduct(product)">
+          <img src="assets/user-pen.png">
+        </button>
+        <button type="button" class="btn pb-0">
+          <img src="assets/trash.png">
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

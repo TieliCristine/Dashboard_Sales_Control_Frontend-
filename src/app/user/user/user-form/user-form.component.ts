@@ -29,7 +29,6 @@ export class UserFormComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(): void {
-    console.log('init')
   }
 
   onSubmit(userForm: FormGroup) {
@@ -37,7 +36,6 @@ export class UserFormComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(): void {
-    console.log('destroy')
   }
 
 

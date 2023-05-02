@@ -1,0 +1,23 @@
+<div class="card-body form p-4 ms-1 p-2">
+  <div class="mb-3">
+    <h2>Editar Cadastro de Produto</h2>
+  </div>
+  <form [formGroup]="productFormEdit" class="needs-validation row g-3">
+    <div class="mb-3 col-md-12">
+      <label for="name" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+    </div>
+    <div class="mb-3 col-md-12">
+      <label for="description" class="form-label">Descrição</label>
+      <input type="text" class="form-control" id="description" formControlName="description">
+    </div>
+    <div class="mb-3 col-md-4">
+      <label for="price" class="form-label">Preço</label>
+      <input type="text" class="form-control" id="price" formControlName="price" placeholder="0,00">
+    </div>
+  </form>
+  <div class="mt-4">
+    <button type="button" class="btn btn-primary" (click)="onSubmit(productFormEdit)">Enviar
+    </button>
+  </div>
+</div>

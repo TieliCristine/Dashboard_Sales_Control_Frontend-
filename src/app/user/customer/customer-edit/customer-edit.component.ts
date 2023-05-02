@@ -15,16 +15,16 @@ export class CustomerEditComponent implements OnInit{
   customer?: Customer;
   customerFormEdit: FormGroup;
 
-
   constructor(
     private formBuilder: NonNullableFormBuilder,
     private route: ActivatedRoute,
-    private customerService: CustomerService,
+    private customerService: CustomerService
   ) {
     this.route.params.subscribe(params => {
       this.customer = history.state.customer;
     });
     this.customerFormEdit = this.formBuilder.group({
+      id: [ this.customer?.id ],
       name: [ this.customer?.name ],
       birthdate: [ this.customer?.birthdate ],
       address: this.formBuilder.group({
@@ -54,6 +54,7 @@ export class CustomerEditComponent implements OnInit{
   }
 
   onSubmit(customerFormEdit: FormGroup) {
-    console.log(customerFormEdit)
+    console.log('no component edit ', customerFormEdit)
+    this.customerService.updateCustomer(customerFormEdit);
   }
 }

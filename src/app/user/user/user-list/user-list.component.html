@@ -1,45 +1,49 @@
-<div class="mb-3">
-  <h2>Lista de Usuários</h2>
+<div class="container-fluid">
+  <div class="card-header m-3">
+    <h2>Lista de Usuários</h2>
+  </div>
+  <div class="card-body p-3">
+    <table class="table table-responsive">
+      <thead>
+      <tr>
+        <th scope="col">#id</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Password</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Data Nasc.</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Level de Acesso</th>
+        <th scope="col">
+          <button type="button" class="btn pb-0" [routerLink]="['../user-form']">
+            <img src="assets/user-add.png">
+          </button>
+
+          <!-- TODO implementar botão para pesquisar user por id mais para frente...  -->
+
+        </th>
+      </tr>
+      </thead>
+      <tbody class="table-group-divider">
+      <tr *ngFor="let user of users">
+        <th scope="row">{{ user.id }}</th>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.cpf }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.birthdate | date:'dd/mm/yyyy' }}</td>
+        <td>{{ user.jobPosition }}</td>
+        <td>{{ user.accessLvl }}</td>
+        <td>
+          <button type="button" class="btn pb-0" [routerLink]="['../user-edit']" (click)="editUser(user)">
+            <img src="assets/user-pen.png">
+          </button>
+          <button type="button" class="btn pb-0">
+            <img src="assets/trash.png">
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<table class="table table-responsive">
-  <thead>
-  <tr>
-    <th scope="col">#id</th>
-    <th scope="col">Email</th>
-    <th scope="col">Password</th>
-    <th scope="col">CPF</th>
-    <th scope="col">Nome</th>
-    <th scope="col">Data Nasc.</th>
-    <th scope="col">Cargo</th>
-    <th scope="col">Level</th>
-    <th scope="col">
-      <button type="button" class="btn pb-0" [routerLink]="['../user-form']">
-        <i class="fa-solid fa-user-plus link-primary"></i>
-      </button>
-
-<!-- TODO implementar botão para pesquisar user por id mais para frente...  -->
-
-    </th>
-  </tr>
-  </thead>
-  <tbody class="table-group-divider">
-  <tr *ngFor="let user of users">
-    <th scope="row">{{ user.id }}</th>
-    <td>{{ user.email }}</td>
-    <td>{{ user.password }}</td>
-    <td>{{ user.cpf }}</td>
-    <td>{{ user.name }}</td>
-    <td>{{ user.birthdate | date:'dd/mm/yyyy' }}</td>
-    <td>{{ user.jobPosition }}</td>
-    <td>{{ user.accessLvl }}</td>
-    <td>
-      <button type="button" class="btn pb-0" [routerLink]="['../user-edit']" (click)="editUser(user)">
-        <i class="fa-solid fa-user-pen link-warning"></i>
-      </button>
-      <button type="button" class="btn pb-0">
-        <i class="fa-solid fa-trash link-danger"></i>
-      </button>
-    </td>
-  </tr>
-  </tbody>
-</table>

@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div class="card-header m-3">
+    <h2>Lista de orçamentos</h2>
+    <div class="col-md-2 mt-4 mb-4 border1">
+      <label>Filtrar por status:</label>
+      <!--        <select class="form-select" id="statusFilter" formControlName="statusFilter">-->
+      <select class="form-select">
+        <option value=""></option>
+        <option value="PENDING">Pendente</option>
+        <option value="PROGRESSING">Processando</option>
+        <option value="AUTHORIZED">Autorizado</option>
+        <option value="CONCLUDED">Concluído</option>
+        <option value="DELIVERED">Entregue</option>
+      </select>
+    </div>
+    <div class="col-md-9 border1">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#id</th>
+          <th>Qtd</th>
+          <th>Cliente</th>
+          <th>Fornecedor</th>
+          <th>Produto</th>
+          <th>Valor total</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--        <tr *ngFor="let budget of budgets | filterByStatus:filtroStatus">-->
+        <tr *ngFor="let budget of budgets">
+          <th scope="row">{{ budget.id }}</th>
+          <td>{{ budget.quantity }}</td>
+          <td>{{ budget.customer.name }}</td>
+          <td>{{ budget.supplier.corporativeName }}</td>
+          <td>{{ budget.product.name }}</td>
+          <td>{{ budget.finalPrice | currency:'BRL' }}</td>
+          <td>{{ budget.status }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

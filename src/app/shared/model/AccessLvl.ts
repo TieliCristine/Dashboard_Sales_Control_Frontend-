@@ -1,6 +1,6 @@
 export enum AccessLvl {
-  LOW = 'LOW',
-  MEDIUM = 'MEDIUM',
-  HIGH = 'HIGH',
+  BAIXO = 'BAIXO',
+  MEDIO = 'MEDIO',
+  ALTO = 'ALTO',
   ADMIN = 'ADMIN'
 }

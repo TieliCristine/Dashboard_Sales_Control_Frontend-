@@ -1,19 +1,31 @@
-<div class="container-fluid d-flex flex-column">
-  <div style="width: 600px">
-    <img src="./assets/img-login.jpg" class="card-img-top" alt="...">
-  </div>
-  <div class=" ms-1 p-2" style="width: 600px">
-    <form [formGroup]="loginForm">
-      <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com">
+<div class="container-fluid bg-login d-flex flex-row justify-content-center">
+  <div class=" d-flex flex-row card">
+    <div class="d-flex flex-column flex-sm-row">
+      <div class="card-body bg-card">
+        <img class="card-img" src="assets/login-img-blue.png">
       </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" formControlName="password">
+      <div class="align-self-center card-body login-form ">
+        <div class="card-title mb-5 text-center text-primary"><h3>
+          Acesse sua conta
+        </h3></div>
+        <form [formGroup]="loginForm">
+          <div class="mb-3">
+            <label for="email" class="form-label text-primary">Email address</label>
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label text-primary">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+          </div>
+        </form>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-primary" [disabled]="!loginForm.valid" (click)="onSubmit(loginForm)">
+            Login
+          </button>
+        </div>
       </div>
-    </form>
-    <button type="button" class="btn btn-primary" [disabled]="!loginForm.valid" (click)="onSubmit(loginForm)">Login</button>
+    </div>
   </div>
 </div>
+
 

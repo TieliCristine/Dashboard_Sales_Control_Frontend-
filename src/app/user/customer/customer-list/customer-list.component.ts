@@ -23,7 +23,7 @@ export class CustomerListComponent implements OnInit{
     this.customerService.listAllCustomers();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.customerListSubscription();
   }
 

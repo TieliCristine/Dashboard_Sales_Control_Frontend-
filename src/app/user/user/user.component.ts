@@ -1,5 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {User} from "../../shared/model/User";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user',

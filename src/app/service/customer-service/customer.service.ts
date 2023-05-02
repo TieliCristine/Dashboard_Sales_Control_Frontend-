@@ -10,8 +10,10 @@ import { ApiService } from "../api-service/api.service";
 export class CustomerService {
 
   customerEmitter = new EventEmitter();
+
   subscriptionListCustomer$?: Subscription;
   subscriptionCreateCustomer$?: Subscription;
+  subscriptionUpdateCustomer$?: Subscription;
 
   constructor(
     private apiService: ApiService
@@ -32,4 +34,11 @@ export class CustomerService {
   }
 
 
+  updateCustomer(customerFormEdit: FormGroup) {
+    console.log('no service edit ', customerFormEdit)
+    this.subscriptionUpdateCustomer$ = this.apiService.putCustomer(customerFormEdit).subscribe(customerUpdate => {
+      this.customerEmitter.emit(customerUpdate);
+      this.subscriptionUpdateCustomer$?.unsubscribe();
+    })
+  }
 }
