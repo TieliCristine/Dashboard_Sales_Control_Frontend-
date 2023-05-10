@@ -11,7 +11,7 @@
       <th scope="col">Preço</th>
       <th scope="col">
         <button type="button" class="btn pb-0" [routerLink]="['../product-form']">
-          <img src="assets/user-add.png">
+          <img src="assets/box-add.png">
         </button>
 
         <!-- TODO implementar botão para pesquisar customer por id mais para frente...  -->
@@ -24,10 +24,10 @@
       <th scope="row">{{ product.id }}</th>
       <td>{{ product.name }}</td>
       <td>{{ product.description }}</td>
-      <td>{{ product.price }}</td>
+      <td>{{ product.price | currency:'BRL'  }}</td>
       <td>
         <button type="button" class="btn pb-0" [routerLink]="['../product-edit']" (click)="editProduct(product)">
-          <img src="assets/user-pen.png">
+          <img src="assets/product-edit.png">
         </button>
         <button type="button" class="btn pb-0">
           <img src="assets/trash.png">

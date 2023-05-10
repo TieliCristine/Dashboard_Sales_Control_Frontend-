@@ -18,6 +18,7 @@ import { Product } from "../../shared/model/Product";
 import { ProductFormComponent } from "../../user/product/product-form/product-form.component";
 
 import { Budget } from "../../shared/model/Budget";
+import {BudgetModalFormComponent} from "../../user/budget/budget-modal-form/budget-modal-form.component";
 
 @Injectable({
   providedIn: 'root'
@@ -102,6 +103,17 @@ export class ApiService {
       )
   }
 
+  getCustomersById(selectedValue: number) {
+    return this.http.get<Customer>(environment.url + 'customer/' + selectedValue)
+      .pipe(
+        first(),
+        catchError(() => {
+          console.log("erro ao buscar customer por ID")
+          return EMPTY;
+        })
+      )
+  }
+
   postCustomer(form: FormGroup) {
     return this.http.post<CustomerFormComponent>(environment.url + 'customer', form.value)
       .pipe(
@@ -114,8 +126,6 @@ export class ApiService {
   }
 
   putCustomer(form: FormGroup) {
-    console.log('put apiservice ', form.value)
-    console.log('put apiservice ', form.value.id)
     return this.http.put<Customer>(environment.url + 'customer/id/' + form.value.id, form.value)
       .pipe(
         first(),
@@ -136,6 +146,17 @@ export class ApiService {
         // tap(supplier => console.log(supplier)),
         catchError(() => {
           console.log("erro no getSuppliers")
+          return EMPTY;
+        })
+      )
+  }
+
+  getSupplierById(selectedValue: number) {
+    return this.http.get(environment.url + 'supplier/' + selectedValue)
+      .pipe(
+        first(),
+        catchError(() => {
+          console.log("erro get supplier by id")
           return EMPTY;
         })
       )
@@ -179,6 +200,17 @@ export class ApiService {
       )
   }
 
+  getProductById(selectedValue: number) {
+    return this.http.get(environment.url + 'product/' + selectedValue)
+      .pipe(
+        first(),
+        catchError(() => {
+          console.log("erro ao buscar Product by id")
+          return EMPTY;
+        })
+      )
+  }
+
   postProduct(form: FormGroup) {
     return this.http.post<ProductFormComponent>(environment.url + 'product', form.value)
       .pipe(
@@ -217,17 +249,17 @@ export class ApiService {
       )
   }
 
-  // postBudget(form: FormGroup) {
-  //   return this.http.post<BudgetFormComponent>(environment.url + 'budget', form.value)
-  //     .pipe(
-  //       first(),
-  //       tap(budget => console.log(budget)),
-  //       catchError(() => {
-  //         console.log("erro ao criar budget")
-  //         return EMPTY;
-  //       })
-  //     )
-  // }
+  postBudget(form: FormGroup) {
+    return this.http.post<BudgetModalFormComponent>(environment.url + 'budget', form.value)
+      .pipe(
+        first(),
+        tap(budget => console.log(budget)),
+        catchError(() => {
+          console.log("erro ao criar budget")
+          return EMPTY;
+        })
+      )
+  }
 
   putBudget(form: FormGroup) {
     return this.http.put<Budget>(environment.url + 'budget/id/' + form.value.id, form.value)

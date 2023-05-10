@@ -12,6 +12,7 @@ export class ProductService {
   productEmitter = new EventEmitter;
 
   subscriptionListProduct$?: Subscription;
+  subscriptionFindByIdProduct$?: Subscription;
   subscriptionCreateProduct$?: Subscription;
   subscriptionUpdateProduct$?: Subscription;
 
@@ -23,6 +24,13 @@ export class ProductService {
     this.subscriptionListProduct$ = this.apiService.getProducts().subscribe(productList => {
       this.productEmitter.emit(productList);
       this.subscriptionListProduct$?.unsubscribe();
+    })
+  }
+
+  findProductById(selectedValue: number) {
+    this.subscriptionFindByIdProduct$ = this.apiService.getProductById(selectedValue).subscribe(productFound => {
+      this.productEmitter.emit(productFound);
+      this.subscriptionFindByIdProduct$?.unsubscribe();
     })
   }
 

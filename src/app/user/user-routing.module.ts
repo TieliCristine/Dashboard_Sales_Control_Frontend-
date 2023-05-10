@@ -19,8 +19,6 @@ import { ProductFormComponent } from "./product/product-form/product-form.compon
 import { ProductEditComponent } from "./product/product-edit/product-edit.component";
 
 import { BudgetListComponent } from "./budget/budget-list/budget-list.component";
-import { BudgetFormComponent } from "./budget/budget-form/budget-form.component";
-import { BudgetEditComponent } from "./budget/budget-edit/budget-edit.component";
 
 const routes: Routes = [
   {
@@ -44,8 +42,6 @@ const routes: Routes = [
       { path: 'product-edit/:id', component: ProductEditComponent },
 
       { path: 'budget-list', component: BudgetListComponent },
-      { path: 'budget-form', component: BudgetFormComponent },
-      { path: 'budget-edit/:id', component: BudgetEditComponent },
     ]
   },
 ];

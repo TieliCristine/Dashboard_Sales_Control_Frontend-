@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BsModalService } from "ngx-bootstrap/modal";
 
-import { UserComponent } from './user/user.component';
-import { UserService } from "../service/user-service/user.service";
+import { SharedModule } from "../shared/shared.module";
 import { UserRoutingModule } from './user-routing.module';
+
+import { UserService } from "../service/user-service/user.service";
+import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
@@ -26,9 +29,8 @@ import { ProductEditComponent } from './product/product-edit/product-edit.compon
 
 import { BudgetService } from "../service/budget-service/budget.service";
 import { BudgetListComponent } from './budget/budget-list/budget-list.component';
-import { BudgetFormComponent } from './budget/budget-form/budget-form.component';
-import { BudgetEditComponent } from './budget/budget-edit/budget-edit.component';
-import { StatusFilterDirective } from './budget/directives/status-filter.directive';
+import { BudgetModalFormComponent } from './budget/budget-modal-form/budget-modal-form.component';
+import { BudgetModalEditComponent } from './budget/budget-modal-edit/budget-modal-edit.component';
 
 
 @NgModule({
@@ -47,22 +49,23 @@ import { StatusFilterDirective } from './budget/directives/status-filter.directi
     ProductEditComponent,
     ProductFormComponent,
     BudgetListComponent,
-    BudgetEditComponent,
-    BudgetFormComponent,
-    StatusFilterDirective
+    BudgetModalFormComponent,
+    BudgetModalEditComponent,
   ],
-    imports: [
-        CommonModule,
-        UserRoutingModule,
-        ReactiveFormsModule,
-        FormsModule,
-    ],
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SharedModule,
+  ],
   providers: [
     UserService,
     CustomerService,
     SupplierService,
     ProductService,
     BudgetService,
+    BsModalService
   ]
 })
 export class UserModule { }

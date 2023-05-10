@@ -1,0 +1,60 @@
+<div class="modal-header">
+  <h1 class="modal-title fs-5">Editar Orçamento</h1>
+  <button type="button" class="btn-close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="budgetFormEdit">
+    <div class="row g-3">
+      <div formGroupName="customer" class="row g-3">
+        <div class="mb-3 col-md-3">
+          <label for="customerId" class="form-label">ID do cliente</label>
+          <input type="text" class="form-control" id="customerId" (change)="onChangeCustomer($event)"
+                 formControlName="id">
+        </div>
+        <div class="mb-3 col-md-9">
+          <label for="customerName" class="form-label">Nome do cliente</label>
+          <input type="text" class="form-control" id="customerName" formControlName="name">
+        </div>
+      </div>
+      <div formGroupName="supplier" class="row g-3">
+        <div class="mb-3 col-md-3">
+          <label for="supplierId" class="form-label">ID do fornec.</label>
+          <input type="text" class="form-control" id="supplierId" (change)="onChangeSupplier($event)"
+                 formControlName="id">
+        </div>
+        <div class="mb-3 col-md-9">
+          <label for="supplierName" class="form-label">Nome do fornecedor</label>
+          <input type="text" class="form-control" id="supplierName" formControlName="corporativeName">
+        </div>
+      </div>
+      <div formGroupName="product" class="row g-3">
+        <div class="mb-3 col-md-3">
+          <label for="productId" class="form-label">ID do prod.</label>
+          <input type="text" class="form-control" id="productId" (change)="onChangeProduct($event)"
+                 formControlName="id">
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="productName" class="form-label">Nome do produto</label>
+          <input type="text" class="form-control" id="productName" formControlName="name">
+        </div>
+        <div class="mb-3 col-md-3">
+          <label for="productPrice" class="form-label">Valor</label>
+          <input type="text" class="form-control" id="productPrice" formControlName="price">
+        </div>
+      </div>
+      <div class="mb-3 col-md-3">
+        <label for="quantity" class="form-label">Qtd.</label>
+        <input type="number" class="form-control" id="quantity" min="0" formControlName="quantity">
+      </div>
+      <div class="mb-3 col-md-4">
+        <label for="finalPrice" class="form-label">Valor total</label>
+        <input type="text" class="form-control" id="finalPrice" formControlName="finalPrice" [ngModel]="totalPrice"
+               readonly>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="closeModal()">Fechar</button>
+  <button type="button" class="btn btn-primary" (click)="onSubmit(budgetFormEdit)">Salvar</button>
+</div>

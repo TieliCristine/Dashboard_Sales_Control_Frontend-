@@ -12,6 +12,7 @@ export class SupplierService {
   supplierEmitter = new EventEmitter();
 
   subscriptionListSupplier$?: Subscription;
+  subscriptionFindByIdSupplier$?: Subscription;
   subscriptionCreateSupplier$?: Subscription;
   subscriptionUpdateSupplier$?: Subscription;
 
@@ -23,6 +24,13 @@ export class SupplierService {
     this.subscriptionListSupplier$ = this.apiService.getSuppliers().subscribe(supplierList => {
       this.supplierEmitter.emit(supplierList);
       this.subscriptionListSupplier$?.unsubscribe();
+    })
+  }
+
+  findSupplierById(selectedValue: number) {
+    this.subscriptionFindByIdSupplier$ = this.apiService.getSupplierById(selectedValue).subscribe(supplierFound => {
+      this.supplierEmitter.emit(supplierFound);
+      this.subscriptionFindByIdSupplier$?.unsubscribe();
     })
   }
 

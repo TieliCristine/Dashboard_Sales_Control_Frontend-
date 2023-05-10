@@ -54,7 +54,6 @@ export class CustomerEditComponent implements OnInit{
   }
 
   onSubmit(customerFormEdit: FormGroup) {
-    console.log('no component edit ', customerFormEdit)
     this.customerService.updateCustomer(customerFormEdit);
   }
 }

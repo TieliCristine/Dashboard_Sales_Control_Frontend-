@@ -9,7 +9,7 @@ import { DoBValidator } from "../../../shared/validators/dob-validator";
   templateUrl: './customer-form.component.html',
   styleUrls: ['./customer-form.component.scss']
 })
-export class CustomerFormComponent implements OnInit, OnDestroy {
+export class CustomerFormComponent implements OnInit {
 
   customerForm: FormGroup;
 
@@ -51,8 +51,5 @@ export class CustomerFormComponent implements OnInit, OnDestroy {
 
   onSubmit(customerForm: FormGroup) {
     this.customerService.createCustomer(customerForm);
-  }
-
-  ngOnDestroy(){
   }
 }

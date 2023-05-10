@@ -12,6 +12,7 @@ export class CustomerService {
   customerEmitter = new EventEmitter();
 
   subscriptionListCustomer$?: Subscription;
+  subscriptionFindByIdCustomer$?: Subscription;
   subscriptionCreateCustomer$?: Subscription;
   subscriptionUpdateCustomer$?: Subscription;
 
@@ -26,6 +27,13 @@ export class CustomerService {
     })
   }
 
+  findCustomerById(selectedValue: number) {
+    this.subscriptionFindByIdCustomer$ = this.apiService.getCustomersById(selectedValue).subscribe(customerFound => {
+      this.customerEmitter.emit(customerFound);
+      this.subscriptionFindByIdCustomer$?.unsubscribe();
+    })
+  }
+
   createCustomer(form: FormGroup) {
     this.subscriptionCreateCustomer$ = this.apiService.postCustomer(form).subscribe( newCustomer => {
       this.customerEmitter.emit(newCustomer);
@@ -33,9 +41,7 @@ export class CustomerService {
     })
   }
 
-
   updateCustomer(customerFormEdit: FormGroup) {
-    console.log('no service edit ', customerFormEdit)
     this.subscriptionUpdateCustomer$ = this.apiService.putCustomer(customerFormEdit).subscribe(customerUpdate => {
       this.customerEmitter.emit(customerUpdate);
       this.subscriptionUpdateCustomer$?.unsubscribe();
