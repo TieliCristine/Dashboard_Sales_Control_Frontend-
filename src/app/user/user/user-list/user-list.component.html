@@ -8,12 +8,9 @@
       <tr>
         <th scope="col">#id</th>
         <th scope="col">E-mail</th>
-        <th scope="col">Password</th>
-        <th scope="col">CPF</th>
         <th scope="col">Nome</th>
         <th scope="col">Data Nasc.</th>
         <th scope="col">Cargo</th>
-        <th scope="col">Level de Acesso</th>
         <th scope="col">
           <button type="button" class="btn pb-0" [routerLink]="['../user-form']">
             <img src="assets/user-add.png">
@@ -28,12 +25,9 @@
       <tr *ngFor="let user of users">
         <th scope="row">{{ user.id }}</th>
         <td>{{ user.email }}</td>
-        <td>{{ user.password }}</td>
-        <td>{{ user.cpf }}</td>
         <td>{{ user.name }}</td>
         <td>{{ user.birthdate | date:'dd/mm/yyyy' }}</td>
         <td>{{ user.jobPosition }}</td>
-        <td>{{ user.accessLvl }}</td>
         <td>
           <button type="button" class="btn pb-0" [routerLink]="['../user-edit']" (click)="editUser(user)">
             <img src="assets/user-pen.png">

@@ -1,0 +1,24 @@
+.bg-toolbar{
+  background: rgba(0, 0, 0);
+  z-index: 9999;
+}
+
+.bg-nav{
+  background: rgba(30, 30, 30);
+  position: fixed;
+  height: 100%;
+  top: 116px;
+  z-index: 9999;
+}
+
+.outer-container{
+  position: absolute;
+  height: auto;
+  width: 80%;
+  top: 116px;
+  right: auto;
+  margin-left: 56px;
+  padding: 35px;
+
+  //border: red 1px solid;
+}
