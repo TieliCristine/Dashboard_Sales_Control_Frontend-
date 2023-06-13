@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Subscription} from "rxjs";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ApiService} from "../api-service/api.service";
-import {Router} from "@angular/router";
+import { Injectable } from '@angular/core';
+import { Router } from "@angular/router";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { Subscription } from "rxjs";
+
+import { ApiService } from "../api-service/api.service";
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,7 @@ export class LoginService {
 
   loginAuthentication(loginForm: FormGroup) {
     this.subscriptionOnSubmit$ = this.api.authentication(loginForm).subscribe(user => {
-      // user && this.router.navigate(['user'])
-      user ? this.router.navigate(['user']) : alert('User não existe!')
+      user ? this.router.navigate(['dashboard']) : alert('User não existe!')
     });
   }
 }

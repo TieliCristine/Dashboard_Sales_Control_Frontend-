@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { UserComponent } from "./user/user.component";
+import { UserDashboardComponent } from "./user/user-dashboard/user-dashboard.component";
 import { UserListComponent } from "./user/user-list/user-list.component";
 import { UserFormComponent } from "./user/user-form/user-form.component";
 import { UserEditComponent } from "./user/user-edit/user-edit.component";
@@ -25,6 +26,7 @@ const routes: Routes = [
     path: '',
     component: UserComponent,
     children: [
+      { path: 'dashboard', component: UserDashboardComponent },
       { path: 'list', component: UserListComponent },
       { path: 'user-form', component: UserFormComponent },
       { path: 'user-edit/:id', component: UserEditComponent },

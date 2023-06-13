@@ -1,21 +1,23 @@
 .bg-login {
-  //background-image: linear-gradient(to right, #18e8d7, rgb(0, 33, 255));
-  background: no-repeat center url("src/assets/login-img.png");
+  background: url('../../../assets/login-img2.png') no-repeat center bottom;
+}
+
+@media (max-width: 800px) {
+  .bg-login {
+    background: url('../../../assets/bg03.png') no-repeat center bottom;
+  }
 }
 
 .card {
-  //box-shadow: 0 30px 75px rgb(3, 26, 173);
   filter: drop-shadow(0px 2px 4px rgb(33, 204, 243));
   margin-top: 100px;
   margin-bottom: 205px;
-  //border-radius: 40px;
   --bs-card-border-width: none;
   --bs-card-border-radius: none;
   width: 400px;
 
-
   /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 229, 229, 0.42);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgb(0, 33, 255);
   backdrop-filter: blur(5px);

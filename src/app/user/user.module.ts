@@ -6,8 +6,9 @@ import { BsModalService } from "ngx-bootstrap/modal";
 import { SharedModule } from "../shared/shared.module";
 import { UserRoutingModule } from './user-routing.module';
 
-import { UserService } from "../service/user-service/user.service";
 import { UserComponent } from './user/user.component';
+import { UserService } from "../service/user-service/user.service";
+import {Pane, UserDashboardComponent} from "./user/user-dashboard/user-dashboard.component";
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
@@ -36,6 +37,7 @@ import { BudgetModalEditComponent } from './budget/budget-modal-edit/budget-moda
 @NgModule({
   declarations: [
     UserComponent,
+    UserDashboardComponent,
     UserListComponent,
     UserFormComponent,
     UserEditComponent,
@@ -51,6 +53,7 @@ import { BudgetModalEditComponent } from './budget/budget-modal-edit/budget-moda
     BudgetListComponent,
     BudgetModalFormComponent,
     BudgetModalEditComponent,
+    Pane,
   ],
   imports: [
     CommonModule,

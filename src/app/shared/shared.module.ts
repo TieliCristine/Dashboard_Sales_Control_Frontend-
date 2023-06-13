@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModalComponent } from './modal/modal.component';
-import { ModalModule} from "ngx-bootstrap/modal";
+import { ModalModule } from "ngx-bootstrap/modal";
+import { NgChartsModule } from 'ng2-charts';
 
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -11,8 +12,21 @@ import { ModalModule} from "ngx-bootstrap/modal";
   ],
   imports: [
     CommonModule,
-    ModalModule
+    ModalModule,
+    NgChartsModule
+    // NgChartsModule.forRoot({ defaults: { ... } })    CONFIG GLOBAL
   ],
   exports: [ModalComponent]
 })
 export class SharedModule { }
+
+
+
+// import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+//
+// imports: [
+//   NgChartsModule
+// ],
+//   providers: [
+//   { provide: NgChartsConfiguration, useValue: { generateColors: false }}
+// ]
