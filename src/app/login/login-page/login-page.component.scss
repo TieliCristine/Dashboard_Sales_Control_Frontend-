@@ -1,6 +1,6 @@
 .bg-login {
   //background-image: linear-gradient(to right, #18e8d7, rgb(0, 33, 255));
-  background: no-repeat center url("src/assets/login-img.png");
+  background: no-repeat center url('../../../assets/login-img.png');
 }
 
 .card {
@@ -12,7 +12,7 @@
   --bs-card-border-width: none;
   --bs-card-border-radius: none;
   width: 400px;
-
+  min-height: 500px;
 
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.5);

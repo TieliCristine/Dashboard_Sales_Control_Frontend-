@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
-import {LoginService} from "../../service/login-service/login.service";
+import { LoginService } from "../../service/login-service/login.service";
 
 @Component({
   selector: 'app-login-page',
@@ -28,5 +28,4 @@ export class LoginPageComponent implements OnInit {
   onSubmit(loginForm: FormGroup) {
     this.loginService.loginAuthentication(loginForm);
   }
-
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { FormGroup } from "@angular/forms";
-import {catchError, EMPTY, first, Observable, tap, throwError} from "rxjs";
+import { catchError, EMPTY, first, Observable, tap } from "rxjs";
 
 import { environment } from "../../../environments/environment";
 
@@ -18,7 +18,9 @@ import { Product } from "../../shared/model/Product";
 import { ProductFormComponent } from "../../user/product/product-form/product-form.component";
 
 import { Budget } from "../../shared/model/Budget";
-import {BudgetModalFormComponent} from "../../user/budget/budget-modal-form/budget-modal-form.component";
+import { BudgetModalFormComponent } from "../../user/budget/budget-modal-form/budget-modal-form.component";
+
+import { AlertModalService } from "../../shared/services/alert-modal.service";
 
 @Injectable({
   providedIn: 'root'
@@ -27,20 +29,24 @@ export class ApiService {
 
   constructor(
     private http: HttpClient,
+    private alertService: AlertModalService
   ) {
   }
 
   authentication(loginForm: FormGroup): Observable<UserComponent> {
-    return this.http.post<UserComponent>(environment.url + 'user/authenticate', loginForm.value)
+    return this.http.post<UserComponent>(environment.url + 'login', loginForm.value)
       .pipe(
         first(),
-        catchError(() => {
-          console.log("erro aquiii")
+        catchError(error => {
+          console.log("erro auth")
+          this.handleError();
           return EMPTY;
         })
       )
   }
-
+  handleError() {
+    this.alertService.showAlertDanger('Usuário não encontrado!')
+  }
   /* -------------------------------------------------- ** USER ** -------------------------------------------------- */
 
   getUsers() {
